@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Redefinir Senha</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #e2e2e2 0%, #ffffff 100%);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="conteudo" class="container">
+    <h1 class="text-center">Redefinir Senha</h1>
+    <form th:action="@{/esqueci-senha}" method="post">
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="text" id="Email" name="Email" class="form-control" placeholder="Informe seu email" required>
+        </div>
+        <div class="text-success" th:if="${message}" th:text="${message}"></div>
+        <button type="submit" class="btn btn-primary">Enviar </button>
+    </form>
+    <div class="footer-links">
+        <a th:href="@{/homeLogin}">Voltar para o login</a>
+    </div>
+</div>
+</body>
+</html>
